@@ -10,6 +10,9 @@ RUN npm --version
 #Install Apache
 RUN yum -y install httpd
 
+#Copy updated configuration to apache
+COPY httpd.conf /etc/httpd/conf/httpd.conf
+
 #To uninstall old version might need --force for privlege
 RUN npm uninstall -g angular-cli @angular/cli
 
@@ -21,16 +24,23 @@ RUN npm install -g @angular/cli@latest
 
 WORKDIR /app
 
-COPY . .
-
 RUN npm install
 
 RUN npm run build --prod
 
-RUN pwd
 
 #Create directory to put build int
 RUN mkdir  /var/www/html/petclinic
 
 #Copy deliverables in Apache
-RUN cd /var/www/html/petclinic  && cp -r /app/dist/* .
+RUN cd /var/www/html/petclinic  && cp -r ~/app/dist/* .
+
+#Copy updated configuration to apache
+COPY httpd.conf /etc/httpd/conf/httpd.conf
+
+#Start Apache in Forground
+CMD ["apachectl", "-D", "FOREGROUND"]
+
+#Exposes the apache port to be accessible outside of container
+EXPOSE 9090
+
