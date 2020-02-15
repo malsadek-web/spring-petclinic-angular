@@ -33,4 +33,4 @@ RUN pwd
 RUN mkdir  /var/www/html/petclinic
 
 #Copy deliverables in Apache
-RUN cd /var/www/html/petclinic  && cp -r ~/app/dist/* .
+RUN cd /var/www/html/petclinic  && cp -r /app/dist/* .
