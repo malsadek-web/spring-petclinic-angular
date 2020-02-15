@@ -31,14 +31,15 @@ COPY . .
 RUN npm install
 
 #Package build
-RUN npm run build --prod
+#RUN npm run build --prod
+
+RUN ng build --prod --base-href=.
 
 #Create directory to put build int
 RUN mkdir  /var/www/html/petclinic
 
 #Copy deliverables in Apache
 RUN cd /var/www/html/petclinic  && cp -r /app/dist/* .
-
 
 #Start Apache in Forground
 CMD ["apachectl", "-D", "FOREGROUND"]
