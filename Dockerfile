@@ -22,7 +22,10 @@ RUN npm cache clean --force
 #Install angular latest version
 RUN npm install -g @angular/cli@latest
 
+#Change workdirectory 
 WORKDIR /app
+
+COPY . . 
 
 RUN npm install
 
