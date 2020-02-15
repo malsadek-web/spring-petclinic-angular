@@ -21,6 +21,8 @@ RUN npm install -g @angular/cli@latest
 
 WORKDIR /app
 
+COPY . .
+
 RUN npm install
 
 RUN npm run build --prod
