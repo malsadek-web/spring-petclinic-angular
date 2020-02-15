@@ -1,5 +1,21 @@
 # stage 1
-FROM node:latest as node
+FROM centos:latest
+
+#Install NPM
+RUN dnf install -y npm
+
+#to check version
+RUN npm --version
+
+#To uninstall old version might need --force for privlege
+RUN npm uninstall -g angular-cli @angular/cli
+
+#CLEAR npm Cahce
+RUN npm cache clean --force
+
+#Install angular latest version
+RUN npm install -g @angular/cli@latest
+
 WORKDIR /app
 COPY . .
 RUN npm install
