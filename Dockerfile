@@ -17,10 +17,11 @@ RUN npm cache clean --force
 RUN npm install -g @angular/cli@latest
 
 WORKDIR /app
+
 COPY . .
 RUN npm install
 RUN npm run build --prod
 
 # stage 2
 FROM httpd:latest
-COPY --from=node /app/dist/ /var/www/html/petclinic
+COPY --from=centos /app/dist/ /var/www/html/petclinic
