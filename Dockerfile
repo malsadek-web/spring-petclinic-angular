@@ -32,5 +32,4 @@ RUN yum -y install httpd
 #Create directory to put build int
 RUN mkdir  /var/www/html/petclinic
 
-
-COPY --from=centos /app/dist/* /var/www/html/petclinic
+COPY --from=centos /app/dist/ /var/www/html/petclinic
