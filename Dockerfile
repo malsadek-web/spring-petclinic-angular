@@ -7,6 +7,9 @@ RUN dnf install -y npm
 #to check version
 RUN npm --version
 
+#Install Apache
+RUN yum -y install httpd
+
 #To uninstall old version might need --force for privlege
 RUN npm uninstall -g angular-cli @angular/cli
 
@@ -18,13 +21,11 @@ RUN npm install -g @angular/cli@latest
 
 WORKDIR /app
 
-COPY . .
 RUN npm install
 
 RUN npm run build --prod
 
-#Install Apache
-RUN yum -y install httpd
+RUN pwd
 
 #Create directory to put build int
 RUN mkdir  /var/www/html/petclinic
