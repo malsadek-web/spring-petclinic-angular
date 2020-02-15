@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("redteam/petclinicfe")
+        app = docker.build("vfde-tibco/petclinicfe")
     }
 
     stage('Test image') {
