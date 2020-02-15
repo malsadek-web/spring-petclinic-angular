@@ -25,5 +25,5 @@ RUN npm install
 RUN npm run build --prod
 
 # stage 2
-FROM httpd:latest
-COPY --from=centos /app/dist/ /var/www/html/petclinic
+#FROM httpd:latest
+#COPY --from=centos /app/dist/ /var/www/html/petclinic
