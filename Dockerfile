@@ -27,19 +27,18 @@ WORKDIR /app
 
 COPY . . 
 
+#Execute build 
 RUN npm install
 
+#Package build
 RUN npm run build --prod
-
 
 #Create directory to put build int
 RUN mkdir  /var/www/html/petclinic
 
 #Copy deliverables in Apache
-RUN cd /var/www/html/petclinic  && cp -r ~/app/dist/* .
+RUN cd /var/www/html/petclinic  && cp -r /app/dist/* .
 
-#Copy updated configuration to apache
-COPY httpd.conf /etc/httpd/conf/httpd.conf
 
 #Start Apache in Forground
 CMD ["apachectl", "-D", "FOREGROUND"]
