@@ -26,4 +26,6 @@ RUN npm run build --prod
 # stage 2
 FROM httpd:latest
 
+RUN mkdir  /var/www/html/petclinic
+
 COPY --from=centos /app/dist/* /var/www/html/petclinic
