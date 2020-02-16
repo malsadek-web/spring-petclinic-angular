@@ -15,6 +15,9 @@ node {
                   echo " copy the backend application to backend server...... "  
                   
              }
+    sh """
+     scp -r docker-compose.yml ftend@110.0.4.24:/fe-petclinic 
+     """
 
  }
   
