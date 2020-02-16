@@ -6,10 +6,8 @@ node {
 
         checkout scm
     }
-
- 
+  
     stage('Test image') {
-        
         app.inside {
             echo "Tests passed"
         }
@@ -19,11 +17,11 @@ node {
   stage('distribute build'){
     
     echo "checkin fronend servers"
-      sh """
+     
               scp -r docker-compose.yml ftend@110.0.4.24:/fe-petclinic 
                 
               ssh  ftend@110.0.4.24 "  cd /fe-petclinic/  "
-            """    
+           
     
   }
 }
