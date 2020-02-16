@@ -15,10 +15,10 @@ node {
 
   
   stage('distribute build'){
-  
-    script{
+  app.inside {
+
     echo "checkin fronend servers"
-    }
+     }
              
 
   }
