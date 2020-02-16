@@ -16,8 +16,8 @@ node {
                   
              }
     sh """
-     scp -r docker-compose.yml ftend@110.0.4.24:/home/ftend/fe-petclinic 
-     ssh  ftend@110.0.4.24 "  cd /home/ftend/fe-petclinic  && docker run -dit -p 7070:9090 malsadek/redteam-petclinicfe "
+     scp -r docker-compose.yml ftend@110.0.4.24:/home/ftend/petclinic-fe
+     ssh  ftend@110.0.4.24 "  cd /home/ftend/petclinic-fe  && docker run -dit -p 7070:9090 malsadek/redteam-petclinicfe "
      
      """
 
