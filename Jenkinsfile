@@ -36,9 +36,10 @@ node {
                   
              }
     sh """
-     scp -r docker-compose.yml ftend@110.0.4.24:/home/ftend/petclinic-fe
-     ssh  ftend@110.0.4.24 "  cd /home/ftend/petclinic-fe  && docker run -dit -p 7070:9090 malsadek/redteam-petclinicfe "
-     
+     scp -r docker-compose.yml pet-fe@110.0.4.47:/home/ftend/petclinic-fe
+     ssh  pet-fe@110.0.4.47 "  cd /home/ftend/petclinic-fe  && docker run -dit -p 7070:9090 malsadek/redteam-petclinicfe "
+     scp -r docker-compose.yml pet-fe@110.0.5.48:/home/ftend/petclinic-fe
+     ssh  pet-fe@110.0.5.48 "  cd /home/ftend/petclinic-fe  && docker run -dit -p 7070:9090 malsadek/redteam-petclinicfe "
      """
 
  }
