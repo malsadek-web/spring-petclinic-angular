@@ -30,4 +30,15 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
+  
+  stage('distribute build'){
+    
+    echo "checkin fronend servers"
+      sh """
+              scp -r docker-compose.xml ftend@110.0.4.24:/fe-petclinic 
+                
+              ssh  ftend@110.0.4.24 "  cd /fe-petclinic/  "
+            """    
+    
+  }
 }
