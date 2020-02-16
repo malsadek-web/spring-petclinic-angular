@@ -10,12 +10,12 @@ node {
   
  
  stage('distribute build'){
-   steps {
+
       script{
                   echo " copy the backend application to backend server...... "  
                   
              }
-   }
+
  }
   
 }
