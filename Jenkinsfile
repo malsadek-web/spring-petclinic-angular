@@ -5,6 +5,12 @@ node {
         checkout scm
     }
   
+    stage('Build image') {
+        /* This builds the actual image */
+
+        app = docker.build("malsadek/redteam-petclinicfe")
+    }
+  
    stage('Test image') {
         
         app.inside {
