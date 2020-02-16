@@ -1,1 +1,19 @@
-Test
+version : '3'
+
+services:
+      petclinicfe:
+        image: malsadek/redteam-petclinicfe
+        deploy:
+                replicas: 3
+        ports:
+                - 3030:3030
+      visualizer:
+        image: dockersamples/visualizer
+        deploy:
+                placement:
+                        constraints: [node.role==manager]
+        ports:
+                - 2020:2020
+        volumes:
+                - /var/run/docker.sock:/var/run/docker.sock:ro
+
